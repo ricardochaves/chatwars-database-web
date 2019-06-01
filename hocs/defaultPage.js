@@ -1,22 +1,11 @@
-import React from 'react'
-import Head from 'next/head'
-import Router from 'next/router'
-import styled from 'styled-components';
+import Head from 'next/head';
+import Router from 'next/router';
+import React from 'react';
+import { Container } from "reactstrap";
+import ForkThis from '../components/ForkThis';
+import Header from '../components/Header';
+import { getUserFromLocalCookie, getUserFromServerCookie } from '../utils/auth';
 
-import ForkThis from '../components/ForkThis'
-import Header from '../components/Header'
-import { getUserFromServerCookie, getUserFromLocalCookie } from '../utils/auth'
-
-const App = styled.div`
-  height: 100vh;
-  width: 100vw;
-`
-
-const Main = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 30px;
-`
 
 export default Page => class DefaultPage extends React.Component {
   static getInitialProps(ctx) {
@@ -52,33 +41,23 @@ export default Page => class DefaultPage extends React.Component {
 
   render() {
     const cssFiles = [
-      'https://unpkg.com/normalize.css@5.0.0/normalize.css'
+      'https://unpkg.com/normalize.css@5.0.0/normalize.css',
+      // 'https://cdnjs.cloudflare.com/ajax/libs/reactstrap/4.8.0/reactstrap.min.js',
+      'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
     ]
     return (
       <div>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
           {cssFiles.map((c, i) => <link key={i} href={c} rel='stylesheet' />)}
-          <style>
-            {`
-            * {
-              margin: 0;
-              font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-            }
-            a {
-              cursor: pointer;
-            }
-            `}
-          </style>
-          <title>Next.js + auth0</title>
+
+          <title>ChatWars Database</title>
         </Head>
-        <ForkThis />
-        <App>
-          <Main>
-            <Header {...this.props} />
-            <Page {...this.props} />
-          </Main>
-        </App>
+        <Container>
+          <ForkThis />
+          <Header {...this.props} />
+          <Page {...this.props} />
+        </Container>
       </div>
     )
   }
