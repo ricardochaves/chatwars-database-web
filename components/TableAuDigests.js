@@ -26,10 +26,15 @@ export default class TableAuDigests extends React.Component {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + Cookie.get('accessToken')
         };
-
+        console.log(myHeaders);
         fetch(config.API_HOST + "au-digests/?item_name=" + this.state.searchItemName, { headers: myHeaders })
             .then((response) => {
-                if (!response.ok) this.setState({ error: response.statusText });
+                console.log(response);
+                if (!response.ok) {
+
+                    this.setState({ error: response.statusText, isLoaded: false, items: [] });
+                    return { "results": [] }
+                }
                 else return response.json();
             })
             .then(
@@ -47,7 +52,7 @@ export default class TableAuDigests extends React.Component {
                 // exceptions from actual bugs in components.
                 (error) => {
                     this.setState({
-                        isLoaded: true,
+                        isLoaded: false,
                         error
                     });
                 }
@@ -58,7 +63,6 @@ export default class TableAuDigests extends React.Component {
         this.setState({ searchItemName: e.target.value });
     }
     handleClick(event) {
-        console.log('Click happened');
         this.setState({
             error: null,
             isLoaded: false,
@@ -103,7 +107,7 @@ export default class TableAuDigests extends React.Component {
                                     <th scope="row"> <Link href={{ pathname: '/au', query: { lot_id: item.lot_id } }}>
                                         <a> {item.lot_id}</a>
                                     </Link></th>
-                                    <td>{item.item_name}</td>
+                                    <td>{item.item.name}</td>
                                     <td>{item.status}</td>
                                     <td>{item.price}</td>
                                 </tr>

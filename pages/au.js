@@ -22,7 +22,7 @@ export default withRouter(({ router: { query } }) => (
         </Head>
         <Container>
             <ForkThis />
-            <Header {...this.props} />
+            <Header />
             {cssFiles.map((c, i) => <link key={i} href={c} rel='stylesheet' />)}
             <AuComponent isAuth={PropTypes.bool.isRequired} id={query.lot_id} />
         </Container>

@@ -10,11 +10,12 @@ const getAuth0 = (options) => {
 const getBaseUrl = () => `${window.location.protocol}//${window.location.host}`
 
 const getOptions = (container) => {
+  const config = require('../config.json')
   return {
     responseType: 'token id_token',
     redirectUri: `${getBaseUrl()}/auth/signed-in`,
     scope: 'openid profile email',
-    audience: "ChatWarsDatabase"
+    audience: config.AUDIENCE
   }
 }
 

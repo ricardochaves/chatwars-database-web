@@ -20,8 +20,11 @@ Create a `config.json` with the valus of your Auth0 account.
 {
   "AUTH0_CLIENT_ID": "gUo8Ek3j4k5YrXA1E73fjk34bvD3xbHQA",
   "AUTH0_CLIENT_DOMAIN": "yourdomain.auth0.com",
-  "API_HOST": "http://0.0.0.0:5005/api/v1/"
+  "API_HOST": "http://0.0.0.0:5005/api/v1/",
+  "AUDIENCE": "you_auth0_audience"
 }
 ```
 
-You will need run the API to load data. TODO
+## Back End
+
+The Back End for this project is [CharWarsDatabase API](https://github.com/ricardochaves/chat-wars-database-api)

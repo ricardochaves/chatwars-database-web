@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 
 const links = [
   { href: '/', text: 'Home' },
@@ -19,7 +19,6 @@ const Header = ({ isAuthenticated, currentUrl }) => (
 
     <Navbar color="light" light expand="md">
       <NavbarBrand href="/">CharWars Database</NavbarBrand>
-      <NavbarToggler onClick={this.toggle} />
       <Nav className="ml-auto" navbar>
         {getAllowedLinks(isAuthenticated).map(l => (
           <NavItem>

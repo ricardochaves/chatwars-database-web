@@ -65,6 +65,14 @@ export default class AuComponent extends React.Component {
                 const item = this.state.item
 
                 if (item) {
+                    var seller_name = "";
+                    var buyer_name = "";
+                    if (item.seller) {
+                        seller_name = item.seller.name;
+                    }
+                    if (item.buyer) {
+                        buyer_name = item.buyer.name;
+                    }
                     return (
 
                         < Row >
@@ -82,7 +90,7 @@ export default class AuComponent extends React.Component {
                                         Item:
             </Col>
                                     <Col>
-                                        {item.item_name}
+                                        {item.item.name}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -90,7 +98,7 @@ export default class AuComponent extends React.Component {
                                         Seller Name:
             </Col>
                                     <Col>
-                                        {item.seller_name}
+                                        {seller_name}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -162,7 +170,7 @@ export default class AuComponent extends React.Component {
                                         Buyer Name:
             </Col>
                                     <Col>
-                                        {item.buyer_name}
+                                        {buyer_name}
                                     </Col>
                                 </Row>
                                 <Row>
