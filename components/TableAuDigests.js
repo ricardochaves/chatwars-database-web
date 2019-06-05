@@ -27,7 +27,7 @@ export default class TableAuDigests extends React.Component {
             'Authorization': 'Bearer ' + Cookie.get('accessToken')
         };
         console.log(myHeaders);
-        fetch(config.API_HOST + "au-digests/?item_name=" + this.state.searchItemName, { headers: myHeaders })
+        fetch(config.API_HOST + "au-digests/?item=" + this.state.searchItemName, { headers: myHeaders })
             .then((response) => {
                 console.log(response);
                 if (!response.ok) {
