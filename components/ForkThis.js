@@ -29,7 +29,7 @@ export default () => (
         }`}
     </style>
     <a
-      href="https://github.com/auth0-blog/next3-auth0"
+      href="https://github.com/ricardochaves/chatwars-database-web"
       className="github-corner"
       aria-label="View source on Github"
     >

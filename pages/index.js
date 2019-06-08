@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PropTypes from "prop-types";
 import React from "react";
 import { Button, Card, CardText, CardTitle, Col, Row } from "reactstrap";
@@ -18,8 +17,6 @@ const SuperSecretDiv = () => (
     </Col>
   </Row>
 );
-
-const createLink = (href, text) => <Link href={href}>{text}</Link>;
 
 const Index = ({ isAuthenticated }) => (
   <Row>
